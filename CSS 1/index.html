@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>The Intelligent Knowledge Platform | Mintlify Clone</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --brand-mint: #0c1210;
+            --brand-dark: #e7efee;
+            --text-main: #94a3b8;
+            --border-color: #01050b;
+            --bg-light: #f8fafc;
+        }
+
+         body {
+            /* 1. Specify the image path */
+            background-image: url("bluie-image.jpg");
+            
+            /* 2. Set the background size to cover the entire viewport */
+            background-size: cover;
+            
+            /* 3. Prevent the image from repeating */
+            background-repeat: no-repeat;
+            
+            /* 4. Fix the image in place when scrolling */
+            background-attachment: fixed;
+
+            /* 5. Position the image centrally */
+            background-position: center;
+
+            /* Optional: Add some text color for visibility against the background */
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            height: 100vh; /* Ensure the body covers the full height */
+
+            
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e6e7eb;
+            color: rgb(244, 239, 239);
+            line-height: 1.5;
+        }
+
+        /* 1. Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 10%;
+            background: rgba(5, 9, 21, 0.8);
+            border-bottom: 8px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-weight: 700; font-size: 1.5rem; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--brand-mint); }
+        
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .nav-ctas .btn-text { color: white; margin-right: 20px; text-decoration: none; }
+        .btn-primary {
+            background: white;
+            color: rgb(15, 3, 3);
+            padding: 10px 20px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 10% 200px 10%;
+            background: linear-gradient(to bottom, #112a45, #020817);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            background: rgb(241, 245, 243);
+            color: var(--brand-mint);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border: 8px solid rgba(0, 5, 3, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0 auto 1.5rem;
+            max-width: 900px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .email-box {
+            background: rgba(241, 238, 238, 0.825);
+            padding: 6px;
+            border-radius: 99px;
+            display: flex;
+            width: fit-content;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+        }
+
+        .email-box input {
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            width: 250px;
+            outline: none;
+        }
+
+        .email-box button {
+            background: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 99px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* 3. Documentation Preview Section */
+        .doc-container {
+            max-width: 1100px;
+            margin: 300px auto 100px;
+            background: rgb(251, 249, 249);
+            border-radius: 12px;
+            display: flex;
+            height: 400px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            color: #051632;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 260px;
+            border-right: 1px solid #e2e8f0;
+            padding: 20px;
+            background: #f6f6f7;
+        }
+
+        .sidebar-item {
+            padding: 8px 12px;
+            margin-bottom: 4px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .sidebar-item.active {
+            background: #ecfdf5;
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            border: 1px solid #e4e8ed;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        /* 4. Trusted By */
+        .trusted-by {
+            text-align: center;
+            padding: 60px 0;
+            opacity: 0.6;
+        }
+
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 30px;
+            filter: greycale(1) invert(1);
+        }
+
+        /* 5. Features */
+        .features {
+            padding: 100px 10%;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            margin-bottom: 120px;
+        }
+
+        .feature-text { flex: 1; }
+        .feature-visual {
+            flex: 1;
+            height: 300px;
+            background: #101722;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* 10. Footer */
+        footer {
+            background: #020617;
+            padding: 80px 10% 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 { margin-bottom: 20px; font-size: 0.9rem; color: white; }
+        .footer-col a { display: block; color: #94a3b8; text-decoration: none; margin-bottom: 10px; font-size: 0.85rem; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🍃 mintlify</div>
+        <div class="nav-links">
+            <a href="#">Resources</a>
+            <a href="#">Documentation</a>
+            <a href="#">Customers</a>
+            <a href="#">Blog</a>
+            <a href="#">Pricing</a>
+        </div>
+        <div class="nav-ctas">
+            <a href="#" class="btn-text">Contact sales</a>
+            <a href="#" class="btn-primary">Start for free</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-badge">NEW Self-updating docs with agent suggestions →</div>
+        <h1>The Intelligent Knowledge Platform</h1>
+        <p>Turn your company's knowledge into accurate, agent-ready context.</p>
+        <div class="email-box">
+            <input type="email" placeholder="Email address">
+            <button>Start now</button>
+        </div>
+    </header>
+
+    <section class="doc-container">
+        <aside class="sidebar">
+            <div style="font-weight: bold; margin-bottom: 20px; color: black;">🍃 mintlify</div>
+            <div class="sidebar-item">Ask Assistant</div>
+            <div class="sidebar-item active">Quickstart</div>
+            <div class="sidebar-item">Global Settings</div>
+            <div class="sidebar-item">AI Optimization</div>
+            <div class="sidebar-item">Components</div>
+            <div class="sidebar-item">Themes</div>
+        </aside>
+        <main class="main-content">
+            <div style="color: var(--brand-mint); font-size: 0.8rem; font-weight: 600;">Getting Started</div>
+            <h2 style="font-size: 2rem; margin: 10px 0;">Quickstart Guide</h2>
+            <p style="color: #64748b;">Start building intelligent documentation in under five minutes.</p>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <div style="font-weight: 600; margin-bottom: 8px;">Starter Templates</div>
+                    <p style="font-size: 0.85rem; color: #64748b;">Deploy beautiful docs in seconds with our pre-built themes.</p>
+                </div>
+                <div class="card">
+                    <div style="font-weight: 600; margin-bottom: 8px;">API Integration</div>
+                    <p style="font-size: 0.85rem; color: #64748b;">Sync your OpenAPI specs directly to your sidebar.</p>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <section class="trusted-by">
+        <p>TRUSTED BY INNOVATIVE TEAMS WORLDWIDE</p>
+        <div class="logo-row">
+            <strong>ANTHROPIC</strong>
+            <strong>PINEcone</strong>
+            <strong>Perplexity</strong>
+            <strong>Vercel</strong>
+            <strong>Resend</strong>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-row">
+            <div class="feature-text">
+                <h2 style="color:#090c10; ">Built for the AI Era</h2>
+                <p style="color: #090c10; font-size: 1.1rem;">Your documentation isn't just for humans anymore. Mintlify optimizes your content for LLMs and AI agents automatically.</p>
+            </div>
+            <div class="feature-visual"></div>
+        </div>
+    </section>
+
+    <section style="text-align: center; padding: 100px 10%; background: #0f172a; border-radius: 24px; margin: 0 10% 100px;">
+        <h2 style="font-size: 3rem;">Ready to upgrade your docs?</h2>
+        <div style="margin-top: 30px;">
+            <a href="#" class="btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Get started for free</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 20px;">🍃 mintlify</div>
+                <p style="font-size: 0.85rem; color: #64748b;">The modern standard for public and internal documentation.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#">Components</a>
+                <a href="#">Analytics</a>
+                <a href="#">Search</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="#">Documentation</a>
+                <a href="#">Help Center</a>
+                <a href="#">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+                <a href="#">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
